@@ -11,10 +11,10 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 
 # Easy Problems
 1. Retrieve all tracks and their respective artists.  
-2. Find all songs from the album titled "Thriller."  
+2. Find all tracks from the album titled "Thriller."  
 3. List distinct album types available in the dataset.  
-4. Retrieve the top 10 most-viewed songs.  
-5. Find the total number of songs in the dataset.  
+4. Retrieve the top 10 most-viewed tracks.  
+5. Find the total number of tracks in the dataset.  
 
 # Intermediate Problems
 6. Find the average duration (in minutes) of songs by each artist.  
