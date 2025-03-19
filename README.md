@@ -35,3 +35,7 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 19. Calculate the correlation between `danceability` and `energy` for all songs.  
 20. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
 
+# Platform
+For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
+
+
