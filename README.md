@@ -4,7 +4,7 @@
 The objective of this project is to analyze the `spotify` dataset using SQL queries to extract meaningful insights about artists, tracks, albums, and various musical attributes. By solving a range of problems from basic data retrieval to advanced analytical queries, the project aims to explore trends in song popularity, engagement metrics, and audio characteristics. The analysis will help in understanding factors influencing music streaming success, audience preferences, and correlations between different musical elements.
 
 # Data
-The data for this project can be found [here]{https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset} on Kaggle
+The data for this project can be found [here](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset) on Kaggle
 
 # Problems to solve
 This project consists of 20 SQL problems designed to analyze and extract insights from the `spotify` dataset. The problems are categorized into three levels based on complexity: 5 easy problems focus on basic data retrieval and filtering, 10 intermediate problems involve aggregations, rankings, and conditional queries, while 5 advanced problems require complex calculations, correlations, and deeper analysis of musical trends. These challenges will help uncover patterns in song popularity, engagement, and streaming behavior.
