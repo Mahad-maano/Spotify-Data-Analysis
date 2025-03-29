@@ -145,23 +145,16 @@ AND total_views > 2000000000;
 Where:
 
 - n is the number of observations
-
 - x is danceability
-
 * y is energy
-
 * Σxy is the sum of the product of danceability and energy
-
 * Σx and Σy are the sums of danceability and energy respectively
-
 * Σx² and Σy² are the sums of squared danceability and energy respectively
 
 The result will be a value between -1 and 1, where:
 
 * 1 indicates a perfect positive correlation
-
 * -1 indicates a perfect negative correlation
-
 * 0 indicates no correlation
 
 ```sql
