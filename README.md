@@ -13,7 +13,8 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 1. Retrieve all tracks and their respective artists.
    
 ```sql
-SELECT * FROM netflix WHERE release_year = 2020; ```
+SELECT * FROM netflix WHERE release_year = 2020;
+```
 
 
 3. Find all tracks from the album titled "Thriller."  
