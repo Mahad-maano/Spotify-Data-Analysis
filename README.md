@@ -139,8 +139,33 @@ WHERE track_count > 5
 AND total_views > 2000000000;
 ```
      
-19. Calculate the correlation between `danceability` and `energy` for all songs.  
-20. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
+19. Calculate the correlation between `danceability` and `energy` for all songs.
+
+# Correlation = (nΣxy - (Σx)(Σy)) / (sqrt(nΣx² - (Σx)²) * sqrt(nΣy² - (Σy)²)) #
+Where:
+
+*n is the number of observations
+*x is danceability
+*y is energy
+*Σxy is the sum of the product of danceability and energy
+*Σx and Σy are the sums of danceability and energy respectively
+*Σx² and Σy² are the sums of squared danceability and energy respectively
+
+The result will be a value between -1 and 1, where:
+
+*1 indicates a perfect positive correlation
+*-1 indicates a perfect negative correlation
+*0 indicates no correlation
+
+```sql
+SELECT 
+    (COUNT(*) * SUM(Danceability * Energy) - SUM(Danceability) * SUM(Energy)) / 
+    (SQRT(COUNT(*) * SUM(Danceability * Danceability) - SUM(Danceability) * SUM(Danceability)) * 
+     SQRT(COUNT(*) * SUM(Energy * Energy) - SUM(Energy) * SUM(Energy))) AS Correlation
+FROM spotify;
+```
+
+21. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
 
 # Platform
 For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
