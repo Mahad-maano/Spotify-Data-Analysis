@@ -76,9 +76,28 @@ GROUP BY artist;
 16. Find all tracks that are completely instrumental (`instrumentalness` = 1).  
 
 # Advanced Problems
-16. Determine the artist with the highest engagement rate, defined as (likes + comments) per view.  
-17. Find the top 3 most streamed songs per album.  
-18. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
+16. Determine the artist with the highest engagement rate, defined as (likes + comments) per view.Note there shouldn't be null values in engagement rate.
+
+```sql
+SELECT
+	artist,
+	engagement_rate
+FROM (
+		SELECT
+			artist,
+			sum(likes) as total_likes,
+			sum(comments) as total_comments,
+			ROUND((sum(likes)+sum(comments)) / NULLIF(sum(views),0),4) as engagement_rate
+		FROM spotify
+		GROUP BY artist
+		)
+WHERE engagement_rate IS NOT NULL
+ORDER BY engagement_rate DESC
+LIMIT 1;
+```
+
+18. Find the top 3 most streamed songs per album.  
+19. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
 
 ```sql
 WITH album_stats AS (
