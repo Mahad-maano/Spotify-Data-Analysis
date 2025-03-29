@@ -10,11 +10,17 @@ The data for this project can be found [here](https://www.kaggle.com/datasets/sa
 This project consists of 20 SQL problems designed to analyze and extract insights from the `spotify` dataset. The problems are categorized into three levels based on complexity: 5 easy problems focus on basic data retrieval and filtering, 10 intermediate problems involve aggregations, rankings, and conditional queries, while 5 advanced problems require complex calculations, correlations, and deeper analysis of musical trends. These challenges will help uncover patterns in song popularity, engagement, and streaming behavior.
 
 # Easy Problems
-1. Retrieve all tracks and their respective artists.  
-2. Find all tracks from the album titled "Thriller."  
-3. List distinct album types available in the dataset.  
-4. Retrieve the top 10 most-viewed tracks.  
-5. Find the total number of tracks in the dataset.  
+1. Retrieve all tracks and their respective artists.
+
+''' SELECT 
+        track,
+        artist
+    FROM spotify;
+    '''
+3. Find all tracks from the album titled "Thriller."  
+4. List distinct album types available in the dataset.  
+5. Retrieve the top 10 most-viewed tracks.  
+6. Find the total number of tracks in the dataset.  
 
 # Intermediate Problems
 6. Find the average duration (in minutes) of songs by each artist.  
