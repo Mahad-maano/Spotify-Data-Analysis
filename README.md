@@ -12,11 +12,11 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 # Easy Problems
 1. Retrieve all tracks and their respective artists.
 
-''' SELECT 
+(''' SELECT 
         track,
         artist
     FROM spotify;
-    '''
+    ''')
 3. Find all tracks from the album titled "Thriller."  
 4. List distinct album types available in the dataset.  
 5. Retrieve the top 10 most-viewed tracks.  
