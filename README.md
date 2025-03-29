@@ -11,11 +11,9 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 
 # Easy Problems
 1. Retrieve all tracks and their respective artists.
-```sql
-SELECT
-	track,
-	artist
-FROM spotify; ```
+SELECT * FROM netflix WHERE release_year = 2020;
+
+
 
 3. Find all tracks from the album titled "Thriller."  
 4. List distinct album types available in the dataset.  
