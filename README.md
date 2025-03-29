@@ -144,8 +144,8 @@ AND total_views > 2000000000;
 # Correlation = (nΣxy - (Σx)(Σy)) / (sqrt(nΣx² - (Σx)²) * sqrt(nΣy² - (Σy)²)) #
 Where:
 
-*n is the number of observations
-*x is danceability
+-n is the number of observations
+-x is danceability
 *y is energy
 *Σxy is the sum of the product of danceability and energy
 *Σx and Σy are the sums of danceability and energy respectively
