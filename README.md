@@ -11,17 +11,11 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 
 # Easy Problems
 1. Retrieve all tracks and their respective artists.
-
-# PostgreSQL SQL Examples
-
-## Import Data from CSV
-To import a CSV file into PostgreSQL, use:
-
 ```sql
-COPY your_table_name
-FROM '/path/to/file.csv'
-DELIMITER ',' 
-CSV HEADER;
+SELECT
+	track,
+	artist
+FROM spotify; ```
 
 3. Find all tracks from the album titled "Thriller."  
 4. List distinct album types available in the dataset.  
