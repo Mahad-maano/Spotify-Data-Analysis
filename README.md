@@ -9,6 +9,39 @@ The data for this project can be found [here](https://www.kaggle.com/datasets/sa
 # Problems to solve
 This project consists of 20 SQL problems designed to analyze and extract insights from the `spotify` dataset. The problems are categorized into three levels based on complexity: 5 easy problems focus on basic data retrieval and filtering, 10 intermediate problems involve aggregations, rankings, and conditional queries, while 5 advanced problems require complex calculations, correlations, and deeper analysis of musical trends. These challenges will help uncover patterns in song popularity, engagement, and streaming behavior.
 
+# Platform
+For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
+```
+-- create table
+DROP TABLE IF EXISTS spotify;
+CREATE TABLE spotify (
+    artist VARCHAR(255),
+    track VARCHAR(255),
+    album VARCHAR(255),
+    album_type VARCHAR(50),
+    danceability FLOAT,
+    energy FLOAT,
+    loudness FLOAT,
+    speechiness FLOAT,
+    acousticness FLOAT,
+    instrumentalness FLOAT,
+    liveness FLOAT,
+    valence FLOAT,
+    tempo FLOAT,
+    duration_min FLOAT,
+    title VARCHAR(255),
+    channel VARCHAR(255),
+    views FLOAT,
+    likes BIGINT,
+    comments BIGINT,
+    licensed BOOLEAN,
+    official_video BOOLEAN,
+    stream BIGINT,
+    energy_liveness FLOAT,
+    most_played_on VARCHAR(50)
+);
+```
+
 # Easy Problems
 1. Retrieve all tracks and their respective artists.
    
@@ -117,7 +150,6 @@ FROM top_3
 WHERE top_3_steamed <= 3 AND album = 'Greatest Hits';
 ```
 
-
 18. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
 
 ```sql
@@ -188,7 +220,6 @@ WHERE track_count > (SELECT avg_track_count FROM average_tracks)
 ORDER BY track_count asc;
 ```
 
-# Platform
-For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
+
 
 
