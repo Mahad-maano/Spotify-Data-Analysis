@@ -65,7 +65,7 @@ FROM spotify
 GROUP BY artist;
 ```
 
-8. Retrieve the top 5 artists with the highest total streams.  
+7. Retrieve the top 5 artists with the highest total streams.  
 9. Find all songs where `danceability` is greater than 0.8 and `energy` is greater than 0.7.  
 10. Calculate the average `valence` (musical positivity) for each album.  
 11. List all albums with more than 1 million total streams.  
@@ -73,7 +73,7 @@ GROUP BY artist;
 13. Retrieve the top 3 most-played tracks on each platform (`most_played_on`).  
 14. Count the number of songs that have an official video.  
 15. List all tracks where `liveness` is above 0.7 but `acousticness` is below 0.3.  
-16. Find all tracks that are completely instrumental (`instrumentalness` = 1).  
+15. Find all tracks that are completely instrumental (`instrumentalness` = 1).  
 
 # Advanced Problems
 16. Determine the artist with the highest engagement rate, defined as (likes + comments) per view.Note there shouldn't be null values in engagement rate.
@@ -96,8 +96,29 @@ ORDER BY engagement_rate DESC
 LIMIT 1;
 ```
 
-18. Find the top 3 most streamed songs per album.  
-19. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
+17. Find the top 3 most streamed songs for the album 'Greatest Hits'
+
+```sql
+WITH top_3 AS (
+		SELECT
+			album,
+			track,
+			stream,
+			RANK() OVER(PARTITION BY album ORDER BY stream DESC) AS top_3_steamed
+		FROM spotify
+		ORDER BY album
+)
+SELECT
+	album,
+	track,
+	stream,
+	top_3_steamed
+FROM top_3
+WHERE top_3_steamed <= 3 AND album = 'Greatest Hits';
+```
+
+
+18. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
 
 ```sql
 WITH album_stats AS (
@@ -118,8 +139,8 @@ WHERE track_count > 5
 AND total_views > 2000000000;
 ```
      
-20. Calculate the correlation between `danceability` and `energy` for all songs.  
-21. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
+19. Calculate the correlation between `danceability` and `energy` for all songs.  
+20. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
 
 # Platform
 For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
