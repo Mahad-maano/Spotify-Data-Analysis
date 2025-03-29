@@ -165,7 +165,28 @@ SELECT
 FROM spotify;
 ```
 
-21. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
+21. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.
+
+```sql
+WITH artist_track_counts AS (
+    SELECT 
+        Artist,
+        COUNT(*) AS track_count
+    FROM spotify
+    GROUP BY Artist
+),
+average_tracks AS(
+    SELECT 
+        AVG(track_count) AS avg_track_count
+    FROM artist_track_counts
+)
+SELECT 
+    Artist,
+    track_count
+FROM artist_track_counts
+WHERE track_count > (SELECT avg_track_count FROM average_tracks)
+ORDER BY track_count asc;
+```
 
 # Platform
 For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
