@@ -13,26 +13,67 @@ This project consists of 20 SQL problems designed to analyze and extract insight
 1. Retrieve all tracks and their respective artists.
    
 ```sql
-SELECT * FROM netflix WHERE release_year = 2020;
+SELECT
+   track
+   artist
+FROM spotify;
 ```
 
 
-3. Find all tracks from the album titled "Thriller."  
-4. List distinct album types available in the dataset.  
-5. Retrieve the top 10 most-viewed tracks.  
-6. Find the total number of tracks in the dataset.  
+2. Find all tracks from the album titled "Thriller."
+
+```sql
+SELECT
+   track
+FROM spotify
+WHERE album = 'Thriller';
+```
+ 
+3. List distinct album types available in the dataset.
+
+```sql
+SELECT 
+   DISTINCT(album)
+FROM spotify;
+```   
+4. Retrieve the top 10 most-viewed tracks.
+
+```sql
+SELECT
+   track,
+   view
+FROM spotify
+ORDER BY view DESC
+LIMIT 10;
+```
+5. Find the total number of tracks in the dataset.  
+
+```sql
+SELECT
+   COUNT(track) AS total_tracks
+FROM spotify;
+```
 
 # Intermediate Problems
-6. Find the average duration (in minutes) of songs by each artist.  
-7. Retrieve the top 5 artists with the highest total streams.  
-8. Find all songs where `danceability` is greater than 0.8 and `energy` is greater than 0.7.  
-9. Calculate the average `valence` (musical positivity) for each album.  
-10. List all albums with more than 1 million total streams.  
-11. Find the artist whose songs have received the most likes.  
-12. Retrieve the top 3 most-played tracks on each platform (`most_played_on`).  
-13. Count the number of songs that have an official video.  
-14. List all tracks where `liveness` is above 0.7 but `acousticness` is below 0.3.  
-15. Find all tracks that are completely instrumental (`instrumentalness` = 1).  
+6. Find the average duration (in minutes) of songs by each artist.
+
+```sql
+SELECT
+	artist,
+	AVG(duration_min) AS avg_duration
+FROM spotify
+GROUP BY artist;
+```
+
+8. Retrieve the top 5 artists with the highest total streams.  
+9. Find all songs where `danceability` is greater than 0.8 and `energy` is greater than 0.7.  
+10. Calculate the average `valence` (musical positivity) for each album.  
+11. List all albums with more than 1 million total streams.  
+12. Find the artist whose songs have received the most likes.  
+13. Retrieve the top 3 most-played tracks on each platform (`most_played_on`).  
+14. Count the number of songs that have an official video.  
+15. List all tracks where `liveness` is above 0.7 but `acousticness` is below 0.3.  
+16. Find all tracks that are completely instrumental (`instrumentalness` = 1).  
 
 # Advanced Problems
 16. Determine the artist with the highest engagement rate, defined as (likes + comments) per view.  
