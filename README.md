@@ -14,7 +14,7 @@ This project consists of 20 SQL problems designed to analyze and extract insight
    
 ```sql
 SELECT
-   track
+   track,
    artist
 FROM spotify;
 ```
@@ -78,9 +78,29 @@ GROUP BY artist;
 # Advanced Problems
 16. Determine the artist with the highest engagement rate, defined as (likes + comments) per view.  
 17. Find the top 3 most streamed songs per album.  
-18. Identify the album with the highest average loudness.  
-19. Calculate the correlation between `danceability` and `energy` for all songs.  
-20. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
+18. Which albums (excluding null values) have more than 5 unique tracks and a total of more than 2 Billion views across all their tracks?.
+
+```sql
+WITH album_stats AS (
+    SELECT 
+        DISTINCT(album) AS album,
+        COUNT(DISTINCT(track)) AS track_count,
+        SUM(views) AS total_views
+    FROM spotify
+	WHERE album IS NOT NULL
+    GROUP BY album
+)
+SELECT 
+    album,
+    track_count,
+    total_views
+FROM album_stats
+WHERE track_count > 5 
+AND total_views > 2000000000;
+```
+     
+20. Calculate the correlation between `danceability` and `energy` for all songs.  
+21. Identify artists whose total number of songs in the dataset exceeds the average number of songs per artist.  
 
 # Platform
 For this project, we are using **PostgreSQL** as the database management system to store and analyze the `spotify` dataset. PostgreSQL provides powerful SQL capabilities, making it ideal for executing complex queries, performing aggregations, and extracting meaningful insights from the data efficiently.
